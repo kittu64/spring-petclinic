@@ -11,10 +11,12 @@ pipeline{
         }
 stage('Sonarqube analysis'){
 steps{
+    withSonarQubeEnv('sonarqube'){
+
    sh 'mvn clean verify sonar:sonar \
   -Dsonar.projectKey=petclinicsonarqube-maven \
-  withSonarQubeEnv('sonarqube')
   -Dsonar.login=sqp_86b7b7bd22d181b83ab06c04c9b4b70d32563ab7'
+}
 }
 }
 
