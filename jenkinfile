@@ -9,6 +9,10 @@ pipeline{
                 sh 'mvn clean install package'
             }
         }
+    mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=petclinicsonarqube-maven \
+  -Dsonar.host.url=http://sonarqube\
+  -Dsonar.login=sqp_86b7b7bd22d181b83ab06c04c9b4b70d32563ab7
 
         stage('test'){
             steps{
