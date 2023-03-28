@@ -4,10 +4,10 @@ pipeline{
         maven 'maven'
     }
 
-    //environment{
-      //NEXUSIP='3.108.40.36'
-      //NEXUSPORT='8081'
- //}
+    /* environment{
+      NEXUSIP='3.108.40.36'
+      NEXUSPORT='8081'
+ } */
     stages{
         stage('build maven project'){
             steps{
