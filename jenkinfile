@@ -5,7 +5,7 @@ pipeline{
     }
 
     /* environment{
-      NEXUSIP='3.108.40.36'
+      NEXUSIP='13.50.106.241'
       NEXUSPORT='8081'
  } */
     stages{
