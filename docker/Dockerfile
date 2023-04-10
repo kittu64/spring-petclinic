@@ -1,3 +1,3 @@
 FROM openjdk:17
-COPY /var/lib/jenkins/workspace/petclinic@2/target app.jar
+COPY /target/spring-petclinic-3.0.0-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
