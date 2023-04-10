@@ -39,7 +39,7 @@ stage('Build docker image'){
               script{
                 def customImage = docker.build('kittu64/petclinic', "./docker")
                 docker.withRegistry('https://registry.hub.docker.com', 'kittu64') {
-                customImage.push("$(env.BUILD_NUMBER)")
+                customImage.push("${env.BUILD_NUMBER}")
                 }
               }
             }
