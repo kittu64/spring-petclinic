@@ -40,6 +40,7 @@ stage('Build docker image'){
               }
             }
           }
+          /*
           stage('Docker Push'){
             steps{
               script{
@@ -57,7 +58,7 @@ stage('Deploy to EKS') {
                 }
             }              
           }  
-
+*/
   
 
 
