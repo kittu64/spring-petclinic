@@ -7,7 +7,7 @@ pipeline{
        environment{
       NEXUSIP='13.50.106.241'
       NEXUSPORT='8081'
-      REGISTRY='petclinic'
+      //REGISTRY='petclinic'
  } 
     stages{
         stage('build maven project'){
@@ -37,7 +37,7 @@ steps{
 stage('Build docker image'){
             steps{
               script{
-                def customImage = docker.build('kittu64/petclinic', "Dockerfile")
+                def customImage = docker.build('kittu64/petclinic', Dockerfile)
                 docker.withRegistry('https://registry.hub.docker.com', 'kittu64') {
                 customImage.push("${env.BUILD_NUMBER}")
                 }
