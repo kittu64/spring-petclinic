@@ -4,10 +4,11 @@ pipeline{
         maven 'maven'
     }
 
-    /* environment{
+       environment{
       NEXUSIP='13.50.106.241'
       NEXUSPORT='8081'
- } */
+      REGISTRY='petclinic'
+ } 
     stages{
         stage('build maven project'){
             steps{
