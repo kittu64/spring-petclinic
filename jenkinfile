@@ -33,6 +33,30 @@ steps{
 }
 }
 */
+stage('Build docker image'){
+            steps{
+              script{
+                dockerImage = docker.build REGISTRY
+              }
+            }
+          }
+          stage('Docker Push'){
+            steps{
+              script{
+                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 552882621694.dkr.ecr.us-east-1.amazonaws.com'
+                sh 'docker push 552882621694.dkr.ecr.us-east-1.amazonaws.com/petclinic:latest' 
+              }
+            }
+          }
+stage('Deploy to EKS') {
+            steps {
+                script {
+                    withKubeConfig(caCertificate: '', clusterName: 'petclinic_eks_cluster', contextName: '', credentialsId: 'kube', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                        sh "kubectl apply -f petclinic-k8s.yaml"
+                    }
+                }
+            }              
+          }  
 
   
 
@@ -44,3 +68,4 @@ steps{
         }
     }
 }
+
