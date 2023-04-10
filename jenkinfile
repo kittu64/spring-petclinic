@@ -45,6 +45,18 @@ stage('Build docker image'){
             }
           }
           /*
+          stage('copy artifacr'){
+          steps{
+                      sh 'pwd'
+                      sh'cp -r target/*.jar docker'
+                      }
+                      }                    
+       
+          
+          
+          
+          
+          
           stage('Docker Push'){
             steps{
               script{
