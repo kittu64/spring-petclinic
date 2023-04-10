@@ -52,18 +52,22 @@ pipeline{
           stage('Build docker image'){
             steps{
               script{
-                dockerImage = docker.build REGISTRY
+              def dockerImage = docker.build('kittu64/petclinic', "Dockerfile")
+              docker.withRegistery('https://registry.hub.docker.com','petclinic64'){
+              dockerImage.push("${evn.BUILD_NUMBER}")
+0              }
+              
               }
             }
           }
-          stage('Docker Push'){
-            steps{
-              script{
-                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 552882621694.dkr.ecr.us-east-1.amazonaws.com'
-                sh 'docker push 552882621694.dkr.ecr.us-east-1.amazonaws.com/petclinic:latest' 
-              }
-            }
-          }
+       //   stage('Docker Push'){
+          // steps{
+            //  script{
+              //  sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 552882621694.dkr.ecr.us-east-1.amazonaws.com'
+                // sh 'docker push 552882621694.dkr.ecr.us-east-1.amazonaws.com/petclinic:latest' 
+             // }
+           // }
+         // }
           stage('Deploy to EKS') {
             steps {
                 script {
