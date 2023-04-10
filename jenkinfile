@@ -47,7 +47,7 @@ stage('copy artifacr'){
 stage('Build docker image'){
             steps{
               script{
-                def customImage = docker.build('kittu64/petclinic64', "./docker")
+                def customImage = docker.build('kittu64/petclinic', "./docker")
                 docker.withRegistry('https://registry.hub.docker.com', 'kittu64') {
                 customImage.push("${env.BUILD_NUMBER}")
                 }
