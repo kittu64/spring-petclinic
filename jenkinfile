@@ -37,7 +37,7 @@ steps{
 stage('Build docker image'){
             steps{
               script{
-                def customImage = docker.build('kittu64/petclinic', "spring-petclinic/Dockerfile")
+                def customImage = docker.build('kittu64/petclinic', 'Dockerfile')
                 docker.withRegistry('https://registry.hub.docker.com', 'kittu64') {
                 customImage.push("${env.BUILD_NUMBER}")
                 }
