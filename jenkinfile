@@ -54,19 +54,6 @@ stage('Build docker image'){
               }
             }
           }
-/*
-stage('Deploy to EKS') {
-            steps {
-                script {
-                    withKubeConfig(caCertificate: '', clusterName: 'petclinic', contextName: '', credentialsId: 'kube', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
-                        sh "kubectl apply -f petclinic-k8s.yaml"
-                    }
-                }
-            }              
-          }  
-  */
-   
-   
    
    
    
