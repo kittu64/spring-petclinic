@@ -54,7 +54,7 @@ stage('Build docker image'){
               }
             }
           }
-       
+/*
 stage('Deploy to EKS') {
             steps {
                 script {
@@ -64,10 +64,13 @@ stage('Deploy to EKS') {
                 }
             }              
           }  
-  
-
-
-        stage('test'){
+  */
+   
+   
+   
+   
+   
+  stage('test'){
             steps{
                 echo 'testing....'
             }
